@@ -1,0 +1,54 @@
+.list-icon{
+    width: 49%;
+    text-align: center;
+    background-color: #ffffff;
+    margin: .05rem .05rem 0rem .03rem;
+    padding: .2rem;
+    border: .02rem solid #0000009e;
+  
+   
+    img{
+   
+        border-radius: 50%;
+        height: 1rem;
+        padding-top: .1rem;
+      
+
+    
+    }
+}
+ul{
+    
+    
+    padding: 0;
+    margin: .1rem;
+    li{
+        width: 100%;
+        display: flex;
+    }
+}
+.list-icon1{
+    width: 49%;
+    text-align: center;
+    background-color: #ffffff;
+    margin: 0rem .05rem 0rem .03rem;
+    padding: .2rem;
+    border: .02rem solid#0000009e;
+  border-top-style: none;
+  
+  
+   
+    img{
+   
+        border-radius: 50%;
+        height: 1rem;
+        padding-top: .1rem;
+      
+
+    
+    }
+}
+body{
+    height: 100%;
+    padding-bottom: 1rem;
+}
