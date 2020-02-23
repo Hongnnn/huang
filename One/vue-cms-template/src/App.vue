@@ -1,7 +1,7 @@
 <template>
-  <div class="app-ol">
+  <div >
     <!-- <header> -->
-      <mt-header fixed title="固定在顶部"></mt-header>
+     
       <!-- <routr-view>
         table -->
         <router-view></router-view>

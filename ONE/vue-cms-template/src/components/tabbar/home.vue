@@ -1,5 +1,7 @@
 <template>
+
     <div>
+         <mt-header fixed title="辣鸡回收"></mt-header>
        <mt-swipe :auto="4000">
            <mt-swipe-item >
             1
