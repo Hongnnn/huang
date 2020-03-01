@@ -46,5 +46,8 @@
 .app-ol{
 padding-top: 30px;
 }
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: #20c11f;
+}
 </style>
  

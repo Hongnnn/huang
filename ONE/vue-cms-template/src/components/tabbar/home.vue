@@ -1,7 +1,7 @@
 <template>
 
     <div>
-         <mt-header fixed title="辣鸡回收"></mt-header>
+         <mt-header fixed title="辣鸡回收" ></mt-header>
        <mt-swipe :auto="4000">
            <mt-swipe-item >
             1
@@ -109,5 +109,26 @@ export default {
           
     }
 }
-
+.mint-header {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #78e478;
+    box-sizing: border-box;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 14px;
+    height: 1rem;
+    line-height: 1;
+    padding: 0 10px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+}
+.mint-swipe {
+    height: 4rem;
+    margin-top: 0rem;
+}
 </style>

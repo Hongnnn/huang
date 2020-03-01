@@ -1,13 +1,13 @@
 <template>
     <div class="page-navbar">  
-        <mt-navbar v-model="selected">
-  <mt-tab-item id="1">文章</mt-tab-item>
-  <mt-tab-item id="2">视频</mt-tab-item>
+        <mt-navbar v-model="selected" class="nvr-title">
+  <mt-tab-item id="1" class="title-color">文章</mt-tab-item>
+  <mt-tab-item id="2" class="title-color">视频</mt-tab-item>
   
 </mt-navbar>
        <!-- tab-container -->
 <mt-tab-container v-model="selected">
-  <mt-tab-container-item id="1">
+  <mt-tab-container-item id="1" >
 
     <div class=" subject">
       <ul>
@@ -42,7 +42,7 @@
       </ul>
  </div>
   </mt-tab-container-item>
-  <mt-tab-container-item id="2">
+  <mt-tab-container-item id="2" >
   <div class="share-movie">
         <ul>
           <li class="movie-li">
@@ -85,12 +85,18 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mint-navbar .mint-tab-item.is-selected {
-    border-bottom: 3px solid #26a2ff;
-  color: #dd524d;
+   border-bottom: 3px solid #e60b0b;
+    color: #e60b0b;
     margin-bottom: -0.03rem;}
+   
     .item {
     display: inline-block;
   }
+.title-color{
+    color: black;
+    font-size: .35rem;
+    line-height: 1;
+}
   .mint-tab-container-wrap {
         background: white;
     margin-top: .12rem;
@@ -207,4 +213,9 @@ ul{
       background: white;
     margin: .15rem 0rem;
 }
+.nvr-title{
+  background-color: #78e478;
+}
+
+
 </style>
