@@ -68,7 +68,8 @@
   </div>
   </mt-tab-container-item>
   
-</mt-tab-container>{
+</mt-tab-container>
+<router-view></router-view>
     </div>
 </template>
 <script>

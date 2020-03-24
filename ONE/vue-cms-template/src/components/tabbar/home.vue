@@ -18,7 +18,7 @@
            <div >
                <ul >
                    <li>
-                   <div  class="list-icon">
+                   <div  class="list-icon" @click="login">
                    <img src="../../style/icon/yifu.png" alt="">
                    <h5>衣服</h5>
                    </div>
@@ -66,6 +66,8 @@
                
            </div>
         </div>
+         
+
     </div>
   
 </template>
@@ -90,6 +92,9 @@ export default {
         //         console.log(result.body);
         //     });
         // }
+        login(){
+            this.$router.push({path:'/login'})
+        }
 
     }
 
@@ -99,7 +104,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.app-ol{
+padding-top: 30px;
+}
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: #20c11f;
+}
 .mint-swipe{
   height: 4rem;
     margin-top: .15rem;

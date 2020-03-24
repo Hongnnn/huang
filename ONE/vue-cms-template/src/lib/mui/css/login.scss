@@ -1,0 +1,46 @@
+.logininput{
+    border-radius: 4px;
+    position: absolute;
+    top: 26%;
+    margin: .4rem;
+    padding: .4rem;
+    background-color: #f7f7f7;
+    box-shadow: -1px -4px 9px #ccc;
+    button{
+        
+        height: .8rem;
+        border-radius: 18px;
+        width: 100%;
+        margin-top: .2rem;
+        background-color: #39cf2fa8;
+
+    }
+    .inputt{
+        
+       
+         margin-top: .2rem;
+         border-radius: 18px;
+
+    }
+    .imgcss{
+        height: 1.1rem;
+      
+        border-radius: 50%;
+        position: relative;
+        left: 40%;
+    }
+    
+}
+.loginproject{
+    position: relative;
+ .backimg{
+    width: 100%;
+    height: -webkit-fill-available;
+ }
+ 
+}
+.sign{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px .2rem;
+}
