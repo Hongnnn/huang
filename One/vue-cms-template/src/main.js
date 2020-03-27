@@ -10,7 +10,9 @@ import 'mint-ui/lib/style.css'
 import MintUI from 'mint-ui'
 import axios from 'axios'
 import qs  from  'qs'
-import store from './store/datatoken'
+// import store from './store/datatoken'
+
+import axiosInit from "./store/axios-init";
 
 
 
@@ -18,6 +20,8 @@ Vue.use(MintUI)
 Vue.use(VueRouter)
 Vue.use(VueSource)
 Vue.use(Vuex)
+
+Vue.prototype.$axios = axios;
 
 
 // Vue.component(Header.name,Header)
@@ -41,18 +45,18 @@ var vm = new Vue({
     el:'#app'   , 
     render:c =>c(app),
     router,
-    store
+    // store
 
 })
-axios.interceptors.request.use(
-    config => {
-      if (localStorage.getItem('Authorization')) {
+// axios.interceptors.request.use(
+//     config => {
+//       if (localStorage.getItem('Authorization')) {
 
-        config.headers.Authorization = localStorage.getItem('Authorization');
-      }
+//         config.headers.Authorization = localStorage.getItem('Authorization');
+//       }
    
-      return config;
-    },
-    error => {
-      return Promise.reject(error);
-    });
+//       return config;
+//     },
+//     error => {
+//       return Promise.reject(error);
+//     });
