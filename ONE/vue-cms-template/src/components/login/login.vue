@@ -42,10 +42,15 @@ export default {
         // console.log(this);
         this.$axios.post("http://106.15.136.244:8080/user/login", {
              'username':_this.loginForm.username,
-             'password':_this.loginForm.password
+             'password':_this.loginForm.password,
+            //  headers:{'Authorization':'Bearer'+' '+  _this.userToken}
+             
           })
           .then(res => {
             console.log(res.data);
+             _this.userToken = 'Bearer ' + res.data.data;
+             _this.changeLogin({ Authorization: _this.userToken })
+             this.$router.push({path:'/'})
           })
           .catch(error =>{
               alert('账号或密码错误');

@@ -10,7 +10,7 @@ import 'mint-ui/lib/style.css'
 import MintUI from 'mint-ui'
 import axios from 'axios'
 import qs  from  'qs'
-// import store from './store/datatoken'
+import store from './store/datatoken'
 
 import axiosInit from "./store/axios-init";
 
@@ -45,7 +45,7 @@ var vm = new Vue({
     el:'#app'   , 
     render:c =>c(app),
     router,
-    // store
+    store
 
 })
 // axios.interceptors.request.use(
