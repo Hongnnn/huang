@@ -65,6 +65,16 @@ var router = new VueRouter({
       path:'/login',
       name:'login',
       component: () => import('./components/login/login.vue')
+    },
+    {
+      path:'/resign',
+      name:'resign',
+      component: () => import('./components/login/resign.vue')
+    },
+    {
+      path:'/menu',
+      name:'menu',
+      component: () => import('./components/tabbar/menu.vue')
     }
     
   ], linkActiveClass:' mui-active'//覆盖默认的路由高亮的类

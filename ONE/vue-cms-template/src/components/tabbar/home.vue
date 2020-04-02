@@ -93,7 +93,7 @@ export default {
         //     });
         // }
         login(){
-            this.$router.push({path:'/login'})
+            this.$router.push({path:'/menu'})
         }
 
     }

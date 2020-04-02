@@ -1,7 +1,10 @@
 <template>
     <div>
        <div class="my-title">
-           <img src="../../style/img/tou.jpg" alt="">
+          <div class="nameimg">
+              <img src="../../style/img/tou.jpg" alt="">
+           <h5 class=" namecls">Naaaa</h5>
+           </div> 
            <div class="content">
            <div class="title-content">
                <h5>总资产（元）</h5>

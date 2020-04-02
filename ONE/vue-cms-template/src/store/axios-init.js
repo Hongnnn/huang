@@ -6,7 +6,7 @@ let loadingInstance; //创建Loading 的实例
  axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
 axios.defaults.crossDomain = true;
 axios.defaults.withCredentials = false;  //设置cross跨域 并设置访问权限 允许跨域携带cookie信息
-axios.defaults.headers.common['Authorization'] = ''; // 设置请求头为 Authorization
+// axios.defaults.headers.common['Authorization'] = ''; // 设置请求头为 Authorization
 
 
 axios.defaults.transformRequest = function (data) {
@@ -16,12 +16,12 @@ data = JSON.stringify(data);
 };
 //配置发送请求前的拦截器 可以设置token信息 
 axios.interceptors.request.use(config => {
-       //loading开始
-        // loadingInstance.start();
+    // if (localStorage.getItem('Authorization')) {
+    //     config.headers.Authorization = localStorage.getItem('Authorization');
+    //   }
         return config;
     }, error => {
-        //出错，也要loading结束
-        // loadingInstance.close();
+       
         return Promise.reject(error);
     });
  

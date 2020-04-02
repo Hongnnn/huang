@@ -2,12 +2,19 @@
     background-color: #78e478;
     height: 4rem;
     position: relative;
-    img{
-        height: 2rem;
-        border-radius: 50%;
+    .nameimg{
         position: absolute;
-        top: 21%;
-        left: 35%;
+    top: 10%;
+    left: 35%;
+    }
+    img{
+        height: 1.7rem;
+    border-radius: 50%;
+    }
+    .namecls{
+        font-size: .4rem;
+        text-align: center;
+        color: ghostwhite;
     }
 }
 .content{
@@ -101,4 +108,7 @@
     color: inherit;
     font-size: 20px;
     line-height: 1;
+}
+.namecls{
+
 }
