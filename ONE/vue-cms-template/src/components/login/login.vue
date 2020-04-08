@@ -24,13 +24,15 @@ export default {
     return {
       loginForm: {
         username: "",
-        password: ""
+        password: "",
+        
       },
-      userToken: ""
+   
+      
     };
   },
   methods: {
-    ...mapMutations(["changeLogin"]),
+    ...mapMutations(["setToken"]),
     signn: function(){
         
         this.$router.push({path:'/resign'})
@@ -50,7 +52,7 @@ export default {
             'password': _this.loginForm.password
           })
           .then(function(response) {
-            console.log('chengg');
+         
             if(response.data.flag ==false){
                 alert('登录失败')
                 _this.loginForm.username='',
@@ -60,6 +62,10 @@ export default {
             }
             else{
                 console.log('登录成功'),
+                _this.setToken({token: response.data.data});
+                console.log( _this.setToken)
+                
+
                 _this.$router.push({path:'/'})
             }
 

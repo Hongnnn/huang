@@ -75,26 +75,48 @@ var router = new VueRouter({
       path:'/menu',
       name:'menu',
       component: () => import('./components/tabbar/menu.vue')
+    },
+    {
+      path:'/carteidt',
+      name:'carteidt',
+      component: () => import('./components/shopcar/carteidt.vue')
     }
     
   ], linkActiveClass:' mui-active'//覆盖默认的路由高亮的类
  
 
 })
-router.beforeEach((to,from,next) => {
-  if (to.path === '/login') {
-    next();
+// router.beforeEach((to,from,next) => {
+//   if (to.path === '/login') {
+//     next();
+//   }
+//   else{
+//     let token = localStorage.getItem('Authorization');
+//     if(token  === null || token === ''){
+//       next('/login');
+//     }
+//     else{
+//       next()
+//     }
+//   }
+
+// });
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login') {    //若要跳转的页面是登录界面
+    next();     //直接跳转
   }
-  else{
-    let token = localStorage.getItem('Authorization');
-    if(token  === null || token === ''){
+  else if (to.path === '/home'){   //若要跳转的页面是个人界面
+    let token = localStorage.getItem('token');    //获取本地存储的token值
+    if (token===null||token===''){    //若token为空则验证不成功，跳转到登录页面
       next('/login');
     }
-    else{
-      next()
+    else{           //不为空则验证成功
+      next();
     }
   }
-
+  else{
+    next();
+  }
 });
 
 // 把路由对象暴露出去

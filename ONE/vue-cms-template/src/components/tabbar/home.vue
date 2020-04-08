@@ -81,6 +81,7 @@ export default {
                      { 'img': '../../style/img/aa.jpg'}, 
                        { 'img': '../../style/img/aa.jpg'}, 
             ]
+             
         }
     },
      created(){

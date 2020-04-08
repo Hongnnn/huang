@@ -58,7 +58,7 @@ export default {
     return {
       goods: [],
       ListHeight: [],
-      scrollY: 0
+      scrollY: 0,
     };
   },
   computed: {
@@ -94,6 +94,7 @@ export default {
       this.$nextTick(() => {
         this._initScroll();
         this._calculateHeight();
+        console.log(this.tokenn)
       });
     });
   },
