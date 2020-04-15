@@ -194,15 +194,6 @@ export default {
          
         }
         
-      ],
-      aa:[
-      {
-        ordeid:'',
-        li:[
-
-        ]
-      }
-
       ]
     };
   },
@@ -219,7 +210,7 @@ export default {
           .get(url)
           .then(response => {
             this.orderList = response.data.data;
-            
+            console.log(this.orderList);
           })
           .catch(function(error) {
             console.log(error);
