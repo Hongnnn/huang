@@ -10,9 +10,10 @@
   li{
     
     background: white;
-    padding: .3rem;
+    padding: .15rem;
     border-radius: .2rem;
     display: block;
+    margin-top: .2rem;
     .order-header{
       width: 100%;
       p{
@@ -40,7 +41,7 @@
     }
   }
   h5{
-    line-height: 1rem;
+    line-height: .5rem;
   }
   .order-count{
     width: 24%;
@@ -48,4 +49,9 @@
   .order-footer{
     padding-left: 48%;
   }
+ 
+}
+.no-order{
+  text-align: center;
+  margin-top: .2rem;
 }
