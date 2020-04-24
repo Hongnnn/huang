@@ -85,6 +85,21 @@ var router = new VueRouter({
       path:'/orderdetail',
       name:'orderdetail',
       component: () => import('./components/order/order-detail.vue')
+    },
+    {
+      path:'/collect',
+      name:'collect',
+      component: () => import('./components/My/collect.vue')
+    },
+    {
+      path:'/collectsign',
+      name:'collectsign',
+      component: () => import('./components/My/collectsign.vue')
+    },
+    {
+      path:'/collectdetail',
+      name:'collectdetail',
+      component: () => import('./components/My/collectdetail.vue')
     }
     
   ], linkActiveClass:' mui-active'//覆盖默认的路由高亮的类

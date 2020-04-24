@@ -11,33 +11,22 @@
 
     <div class=" subject">
       <ul>
-        <li>
+        <li v-for="(item,index) in articleList" :key="index">
      <div class=" content-list">
-        <h4 class="titel-style">小龙虾壳还可以这么用？</h4>
+        <h4 class="titel-style">{{item.articletitle}}</h4>
         <div class="csss">
-       <div class="hcss" > <h6 class="content-style"> 小龙虾壳经过机器设备的过滤清洗，高温消毒，机器烘干后成为虾粉</h6></div>
+       <div class="hcss" > <h6 class="content-style"> {{item.articledesc}}</h6></div>
       
-         <div class="img-css"><img src="../../style/img/aa.jpg" alt=""></div>
+         <div class="img-css"><img :src="item.imageurl" alt=""></div>
         </div>
         <div class="tupian">
-          <img src="../../style/img/shares-icon.png" alt=""> <span> 3</span>
-          <img src="../../style/img/comment.png" alt=""> <span> 5</span>
+          <img src="../../style/img/shares-icon.png" alt=""> <span> {{item.collectcount}}</span>
+          <img src="../../style/img/comment.png" alt=""> <span> {{item.commentcount}}</span>
         </div>
     </div>
         </li>
             <li>
-     <div class=" content-list">
-        <h4 class="titel-style">小龙虾壳还可以这么用？</h4>
-        <div class="csss">
-       <div class="hcss" > <h6 class="content-style"> 小龙虾壳经过机器设备的过滤清洗，高温消毒，机器烘干后成为虾粉</h6></div>
-      
-         <div class="img-css"><img src="../../style/img/aa.jpg" alt=""></div>
-        </div>
-        <div class="tupian">
-          <img src="../../style/img/shares-icon.png" alt=""> <span> 3</span>
-          <img src="../../style/img/comment.png" alt=""> <span> 5</span>
-        </div>
-    </div>
+    
         </li>
       </ul>
  </div>
@@ -77,8 +66,25 @@ export default {
     name: 'page-navbar',  
     data(){
         return{
-            selected:'1'
+            selected:'1',
+            articleList:[]
         }
+        },
+        created(){
+          this.getData()
+        },
+        methods:{
+          getData(){
+            // let _this= this
+            let classify =this.selected-1
+            let url=`http://106.15.136.244:8080/article/list?classify=${classify}`
+            this.$axios.get(url)
+            .then(res=>{
+              
+              this.articleList=res.data.data
+              console.log(this.articleList)
+            })
+          }
         }
     }
 

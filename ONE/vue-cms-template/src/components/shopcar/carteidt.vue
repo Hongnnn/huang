@@ -83,7 +83,9 @@ export default {
       cityData: "",
       districtData: "",
       selectList: [],
-      selectarr:[]
+      selectarr:[],
+     price:''
+   
 
     };
   },
@@ -106,6 +108,8 @@ export default {
       bb.forEach(food => {
         total += food.price * food.count;
       });
+      this.price =total
+
       return total;
     },
     
@@ -130,6 +134,7 @@ export default {
         let oderdata = this;
         let ordertime =  (new Date()).valueOf()
         console.log(oderdata.receiverName)
+        console.log(oderdata.price)
        
         
         oderdata.$axios
@@ -138,7 +143,7 @@ export default {
             'orderphone': oderdata.receiverPhone,
             'orderlist': oderdata.selectList,
             'orderaddress': oderdata.chooseAddress,
-            'orderprice': oderdata.orderprice,
+            'orderprice': oderdata.price,
             'ordertime':ordertime,
             'token': a
           })

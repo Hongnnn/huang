@@ -33,6 +33,7 @@
                       <h5 class="order-count">数量：{{good.count}}</h5>
                       <h5>￥{{good.price}}</h5>
                     </div>
+                    <
                   </li>
                 </ul>
 
@@ -49,29 +50,33 @@
         <div class="order">
           <div class="order-list">
             <ul>
-              <li v-for="(item,index) in newArr" :key="index" @click="detail(item.orderId)">
-                <div class="order-header">
+              <li v-for="(item,index) in newArr" :key="index" >
+                <div class="order-header" >
                   <p>
                     订单编号:{{item.orderId}}
                     <span>未接单</span>
                   </p>
                 </div>
                 <ul>
-                  <li v-for="good in item.orderList"> 
-                    <div class="order-content">
+                  <li v-for="good in item.orderList" > 
+                    <div class="order-content" @click="detail(item.orderId)">
                       <div class="order-left">
                         <img :src="good.icon" alt />
                         <h5>{{good.name}}</h5>
                       </div>
                       <h5 class="order-count">数量：{{good.count}}</h5>
                       <h5>￥{{good.price}}</h5>
+                      
                     </div>
+                     
+                   
                   </li>
+                  <P class="totalji">总积分：{{item.totalprice}}</P>
                 </ul>
 
                 <div class="order-footer">
                   <button>查看详情</button>
-                  <button>取消订单</button>
+                  <button @click="deleteBtn(item.orderId)"> 取消订单</button>
                 </div>
               </li>
             </ul>
@@ -146,15 +151,22 @@
            <div class="no-order" v-show="notOrder">暂无订单~</div>
       </mt-tab-container-item>
     </mt-tab-container>
+    <Modal :show="show"  @hideModal="hideModal" @submit="submit">
+    <p class="delet">是否确认取消</p>
+     </Modal>
   </div>
+  
 </template>
 
 <script>
 import "../../lib/mui/css/order.scss";
+import Modal from '../order/modal.vue'
 export default {
   name: "nav-title",
   data() {
     return {
+   
+       show: false,
      
       selected: "1",
       orderist: [],
@@ -221,9 +233,11 @@ export default {
       aa: [],
       newArr: [],
       
-      id: ""
+      id: "",
+      score:''
     };
   },
+
   watch: {
     selected: function(val, oldVal) {
       // 这里就可以通过 val 的值变更来确定
@@ -239,13 +253,17 @@ export default {
            this.newArr=[]
             //  const data =JSON.parse(response.data.data)
             this.newobj = response.data.data;
+            console.log(this.newobj)
+            this.score=response.data.data
             if(this.newobj.length==0){
              this.notOrder=true
             }
             else{
             let id = 0;
+           
             this.newobj.forEach((v, i) => {
               id = v[i].orderid;
+            
               // console.log('id值',this.newobj[i]);
               const orderList = [];
               v.forEach(v => {
@@ -255,10 +273,13 @@ export default {
                   icon: v.icon,
                   count: v.count
                 });
+            
+
               });
               this.newArr.push({
                 orderId: id,
-                orderList: orderList
+                orderList: orderList,
+              
               });
             })};
 
@@ -277,8 +298,42 @@ export default {
                 query:{userid:data}
             })
 
-    }
-  }
+    },
+    deleteBtn(e){
+        this.show = true
+        this.id=e
+
+    },
+     hideModal() {
+            // 取消弹窗回调
+            this.show = false
+        },
+
+        submit() {
+            // 确认弹窗回调
+        //  let url=`106.15.136.244:8080/order/cancel`
+         this.$axios.post("http://106.15.136.244:8080/order/cancel",{
+           "orderid":this.id
+         })
+         .then(res=>{
+          if(res.data.flag=true){
+            alert('取消订单成功')
+            this.show=false
+          }
+          else{
+            alert('取消订单失败')
+          }
+         })
+          .catch(err =>{
+             console.log(err)
+           })
+           
+        }
+  },
+ 
+  components: {
+        Modal
+    },
 };
 </script>
 <style lang="scss" scoped>

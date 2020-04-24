@@ -6,7 +6,15 @@
   color: #dd524d;
     margin-bottom: -0.03rem;
   }
+  .totalji{
+    padding-left: 70%;
+    color: black;
+    font-size: .3rem;
+  }
 .order-list{
+  ul{
+    margin-bottom: 1rem;
+  }
   li{
     
     background: white;
@@ -54,4 +62,7 @@
 .no-order{
   text-align: center;
   margin-top: .2rem;
+}
+.delet{
+  color: #000000d1;
 }
